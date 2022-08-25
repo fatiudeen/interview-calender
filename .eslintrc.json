@@ -15,5 +15,14 @@
         "@typescript-eslint"
     ],
     "rules": {
-    }
+    },
+    "settings": {
+        "import/resolver": {
+          "typescript": {},
+          "node": {
+            "extensions": [".ts", ".tsx"],
+            "moduleDirectory": ["src", "node_modules"]
+          }
+        }
+      }
 }
