@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-/* eslint-disable lines-between-class-members */
+
 import express, { Application } from 'express';
 import cors from 'cors';
 import logger from 'morgan';
@@ -22,8 +22,8 @@ class App {
     this.app.use('/', (req, res) => {
       res.status(200).json({ message: 'WELCOME TO THE INTERVIEW CALENDAR' });
     });
-    this.app.use('/interview', interviewRoute.setupRoutes());
-    this.app.use('/users', userRoute.setupRoutes());
+    this.app.use('/api/v1/interviews', interviewRoute.setupRoutes());
+    this.app.use('/api/v1/users', userRoute.setupRoutes());
     this.app.use('/docs', docs);
   }
   private initMiddlewares() {
@@ -46,6 +46,10 @@ class App {
     this.app.listen(port, () => {
       console.log(`running on port ${port}`);
     });
+  }
+
+  public instance() {
+    return this.app;
   }
 }
 

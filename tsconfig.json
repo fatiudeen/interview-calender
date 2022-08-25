@@ -34,6 +34,11 @@
       "@interface/*": ["src/api/v1/interface/*"],
       "@routes/*": ["src/api/v1/routes/*"],
       "@middlewares/*": ["src/api/v1/middlewares/*"],
+      "@helpers/*": ["src/api/v1/helpers/*"],
+      "@services/*": ["src/api/v1/services/*"],
+      "@controllers/*": ["src/api/v1/controllers/*"],
+      "@dtos/*": ["src/api/v1/dtos/*"],
+      "@database": ["src/api/v1/utils/DB"],
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
