@@ -3,6 +3,6 @@ import { UserInterface } from '@interface/User.Interface';
 export interface InterviewInterface {
   id: string;
   interviewer: UserInterface[];
-  candidates: UserInterface;
+  candidate: UserInterface;
   [k: string]: any;
 }

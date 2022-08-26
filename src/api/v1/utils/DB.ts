@@ -52,7 +52,7 @@ class Lowdb<T extends UserInterface | InterviewInterface> {
     const array = this.db.chain.get(this.model) as any;
     return array.find(query).value();
   }
-  findMany(query: Partial<T>) {
+  findMany(query: Partial<T>): T[] {
     const result = this.db.chain.get(this.model).value() as any;
     return result.filter((val: any) =>
       Object.entries(query).every(([k, v]) => k in val && v === val[k]),
@@ -64,12 +64,6 @@ class Lowdb<T extends UserInterface | InterviewInterface> {
     this.db.write();
     this.db.read();
     return result;
-  }
-
-  pushSlot(query: Partial<UserInterface>, data: string): T {
-    const result = this.db.chain.get('users').find(query).value();
-    result.slots.push(data);
-    return this.update(<T>{ id: result.id }, <T>result);
   }
 
   delete(query: Partial<T>): T {

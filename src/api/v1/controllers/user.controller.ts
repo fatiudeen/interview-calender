@@ -35,6 +35,15 @@ class UserController {
     }
   }
 
+  getSlots(req: Request, res: Response, next: NextFunction) {
+    try {
+      const result = this.user.getSlots();
+      HttpResponse.send(res, result);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   getInterviewers(req: Request, res: Response, next: NextFunction) {
     try {
       const result = this.user.getOne({
