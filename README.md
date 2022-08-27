@@ -66,11 +66,8 @@ An API/Service developed to manage interview schedules. Contains endpoints for c
 
 2. Run the command below to start app container (accessible via localhost:3000)
 
-```docker compose up --build ```
+```docker compose up```
 
-3. To run tests, open a new terminal/cmd and run the command below
-
-```docker exec -it interviewcalender-1 npm run test ```
 
 ##### NB: You Access API documentation at localhost:3000/docs
 
