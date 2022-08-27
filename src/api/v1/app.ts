@@ -17,12 +17,12 @@ class App {
   }
 
   private initRoutes() {
-    this.app.get('/', (req, res) => {
-      res.status(200).json({ message: 'WELCOME TO THE INTERVIEW CALENDAR' });
-    });
     this.app.use('/api/v1/interviews', interviewRoute.setupRoutes());
     this.app.use('/api/v1/users', userRoute.setupRoutes());
     this.app.use('/docs', docs);
+    this.app.get('/', (req, res) => {
+      res.status(200).json({ message: 'WELCOME TO THE INTERVIEW CALENDAR :)' });
+    });
   }
   private initMiddlewares() {
     this.app.use(

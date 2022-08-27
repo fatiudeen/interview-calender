@@ -13,4 +13,11 @@ export default {
   moduleDirectories: ['node_modules', 'src'],
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+  extensionsToTreatAsEsm: ['.ts'],
+  globals: {
+    'ts-jest': {
+      useESM: true,
+    },
+  },
+  // moduleNameMapper: { '^(\\.{1,2}/.*)\\.js$': '$1' },
 };
