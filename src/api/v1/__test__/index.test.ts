@@ -6,7 +6,6 @@ describe('index test', () => {
     const { statusCode, body } = await supertest(app.instance()).get('/');
 
     expect(statusCode).toBe(200);
-    expect(body.success).toEqual(true);
-    expect(body.message).toEqual('WELCOME TO THE INTERVIEW CALENDAR');
+    expect(body.message).toEqual('WELCOME TO THE INTERVIEW CALENDAR :)');
   });
 });
