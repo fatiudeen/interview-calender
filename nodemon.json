@@ -8,5 +8,5 @@
         "db.json",
         "src/**/*.{spec,test}.ts"
     ],
-    "exec": "ts-node -r tsconfig-paths/register --transpile-only src/index.ts"
+    "exec": "node --experimental-specifier-resolution=node  --loader ./loader.js ./src/index.ts  "
 }
