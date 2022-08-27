@@ -19,7 +19,7 @@ class UserRoutes {
       .put(validator(userDto.addSlot), this.users.pushSlot);
     this.router.get('/:id', validator(userDto.id), this.users.get);
     this.router.get('/slots', this.users.getSlots);
-    this.router.get('/interviewer', this.users.getInterviewers);
+    this.router.get('/interviewers', this.users.getInterviewers);
     this.router.get('/candidates', this.users.getCandidates);
     return this.router;
   }

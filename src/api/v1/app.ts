@@ -1,5 +1,3 @@
-/* eslint-disable class-methods-use-this */
-
 import express, { Application } from 'express';
 import cors from 'cors';
 import logger from 'morgan';
@@ -19,7 +17,7 @@ class App {
   }
 
   private initRoutes() {
-    this.app.use('/', (req, res) => {
+    this.app.get('/', (req, res) => {
       res.status(200).json({ message: 'WELCOME TO THE INTERVIEW CALENDAR' });
     });
     this.app.use('/api/v1/interviews', interviewRoute.setupRoutes());
