@@ -12,11 +12,12 @@ class InterviewRoutes {
   }
 
   setupRoutes() {
-    this.router.get('/:id', validator(interviewDto.id), this.interviews.get);
     this.router
       .route('/')
       .get(this.interviews.getAll)
       .post(validator(interviewDto.create), this.interviews.scheduleInterview);
+    this.router.get('/:id', validator(interviewDto.id), this.interviews.get);
+
     return this.router;
   }
 }

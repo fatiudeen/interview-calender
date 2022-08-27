@@ -20,7 +20,7 @@ class UserService {
   }
   create(data: Partial<UserInterface>) {
     data.id = nanoid(10);
-    data.slots = [];
+    data.slots = data.slots ? data.slots : [];
     data.assigned = false;
     const result = this.db.add(<UserInterface>data);
     return result;
@@ -48,6 +48,7 @@ class UserService {
         'oops!! time slot has to be between 0 - 23 to match hours in a day',
       );
     }
+    this.getOne(id);
     result.slots.push(data);
     return this.update({ id: result.id }, result);
   }

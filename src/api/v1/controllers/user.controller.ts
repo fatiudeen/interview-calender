@@ -20,7 +20,7 @@ class UserController {
   create = (req: Request, res: Response, next: NextFunction) => {
     try {
       const result = this.user.create(req.body);
-      HttpResponse.send(res, result);
+      HttpResponse.send(res, result, 201);
     } catch (error) {
       next(error);
     }
@@ -57,7 +57,6 @@ class UserController {
 
   getCandidates = (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log(1);
       const result = this.user.getMany({
         role: 'candidate',
       });

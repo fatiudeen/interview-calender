@@ -15,6 +15,7 @@ class InterviewService {
 
   getOne(id: Partial<InterviewInterface>) {
     const result = this.db.findOne(id);
+    if (!result) throw new Error('cannot find interview with that id');
     return result;
   }
   getAll() {
@@ -57,15 +58,16 @@ class InterviewService {
     //   this.distributeInterviewers(interviewers, scheduledInterview);
     // }
   }
-  schedule(data: Partial<InterviewInterface>) {
-    const candidate = this.userService.getOne({ id: data.candidate?.id });
+  schedule(data: { candidate: string; interviewer: string[] }) {
+    const candidate = this.userService.getOne({ id: data.candidate });
+
     const interviewerNotSet: UserInterface[] = [];
     if (candidate.assigned) {
       throw new Error('the candidate has already been scheduled');
     }
     const interviewer = data.interviewer
       ?.map((val) => {
-        return this.userService.getOne({ id: val.id });
+        return this.userService.getOne({ id: val });
       })
       .filter((val) => {
         const value = val.slots.find((num) => num === candidate.slots[0]);
@@ -77,7 +79,7 @@ class InterviewService {
     return {
       result,
       'the following interviewers wont be free during the interview':
-        interviewerNotSet,
+        interviewerNotSet.length,
     };
   }
 
@@ -130,4 +132,4 @@ class InterviewService {
   }
 }
 
-export default InterviewService;
+export default new InterviewService();

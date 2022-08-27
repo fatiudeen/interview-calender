@@ -5,7 +5,7 @@ import HttpResponse from '@helpers/HttpResponse';
 class InterviewController {
   private interview;
   constructor() {
-    this.interview = new InterviewService();
+    this.interview = InterviewService;
   }
   getAll = (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -37,7 +37,7 @@ class InterviewController {
         });
       }
 
-      HttpResponse.send(res, result);
+      HttpResponse.send(res, result, 201);
     } catch (error) {
       next(error);
     }

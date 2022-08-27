@@ -7,6 +7,6 @@ export default {
     body('interviewers')
       .optional()
       .isArray()
-      .withMessage('role has to be an array'),
+      .withMessage('interviewers has to be an array'),
   ],
 };

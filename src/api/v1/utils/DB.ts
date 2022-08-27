@@ -21,16 +21,13 @@ class Lowdb<T extends UserInterface | InterviewInterface> {
   private defaultValue;
   private users: UserInterface[] = [];
   private interviews: InterviewInterface[] = [];
-  private presistData;
   private model;
   constructor(model: Model) {
     this.defaultValue = { users: this.users, interviews: this.interviews };
     this.adapter = new JSONFileSync<Data>(this.dbFile);
     this.db = new LowWithLodash(this.adapter);
     this.db.read();
-    this.presistData = this.db.data ? this.db.data : this.defaultValue;
-    this.db.data =
-      process.env.NODE_ENV === 'test' ? this.defaultValue : this.presistData;
+    this.db.data = this.db.data ? this.db.data : this.defaultValue;
     this.db.write();
     this.model = model;
   }

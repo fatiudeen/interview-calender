@@ -20,7 +20,7 @@ const errorHandler = (
   }
 
   res.status(statusCode).json({
-    sucess: false,
+    success: false,
     message: error.message || 'Server Error',
     error,
   });
