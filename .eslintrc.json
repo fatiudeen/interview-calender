@@ -22,6 +22,11 @@
       "max-classes-per-file": "off",
       "function-paren-newline": "off",
       "operator-linebreak": "off",
+      "arrow-body-style": "off",
+      "no-unused-expressions": "off",
+      "prefer-destructuring": "off",
+      "no-param-reassign": "off",
+      "keyword-spacing": "off",
       "class-methods-use-this": "off"
     },
     "settings": {
