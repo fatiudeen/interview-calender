@@ -40,7 +40,7 @@ class InterviewService {
     interviewers: UserInterface[],
     scheduledInterview: InterviewInterface[],
   ) {
-    const length = interviewers.length;
+    // const length = interviewers.length;
     scheduledInterview.forEach((val) => {
       const interviewer = interviewers.find((value) =>
         value.slots.find((index) => index === val.candidate.slots[0]),
@@ -53,9 +53,9 @@ class InterviewService {
         });
       }
     });
-    if (interviewers.length === length) {
-      this.distributeInterviewers(interviewers, scheduledInterview);
-    }
+    // if (interviewers.length === length) {
+    //   this.distributeInterviewers(interviewers, scheduledInterview);
+    // }
   }
   schedule(data: Partial<InterviewInterface>) {
     const candidate = this.userService.getOne({ id: data.candidate?.id });
@@ -86,7 +86,7 @@ class InterviewService {
     const condidateswithoutInterviewer: UserInterface[] = [];
     const scheduledInterview: InterviewInterface[] = [];
     const candidates = this.userService
-      .getMany({ role: 'candidates' })
+      .getMany({ role: 'candidate' })
       .filter((val: { assigned: boolean }) => {
         return val.assigned === false;
       });

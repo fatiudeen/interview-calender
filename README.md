@@ -46,11 +46,12 @@
   
 ### ABOUT
 
-An API/Service developed to manage schools which are designated for delivery. Contains endpoints for creating schools, checking schools availability, as well as loading schools with medications. This service has been deployed on Amazon EKS, It is accessible via the links below;
+An API/Service developed to manage interview schedules. Contains endpoints for creating interviewers and candidates, check time slots, as well as scheduling the interviews. 
 
-  
 
-1. [API documentation link](https://documenter.getpostman.com/view/18528397/VUr1HYgY)
+ The documentation is accessible via the link below;
+
+[API documentation link](https://documenter.getpostman.com/view/18528397/VUr1HYgY)
 
 
 ### INSTALLATION

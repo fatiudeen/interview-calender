@@ -11,6 +11,7 @@ class UserService {
 
   getOne(id: Partial<UserInterface>) {
     const result = this.db.findOne(id);
+    if (!result) throw new Error('cannot find user with that id');
     return result;
   }
   getAll() {
@@ -37,7 +38,7 @@ class UserService {
   addSlot(id: Partial<UserInterface>, data: number) {
     const result = <UserInterface>this.getOne(id);
 
-    if (result.role === 'candidates' && result.slots.length === 1) {
+    if (result.role === 'candidate' && result.slots.length === 1) {
       throw new Error('cannot add more than one time slot to a canditate');
     }
 

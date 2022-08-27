@@ -1,34 +1,31 @@
-import UserService from '@services/user.service';
 import InterviewService from '@services/interview.services';
 import { Request, Response, NextFunction } from 'express';
 import HttpResponse from '@helpers/HttpResponse';
 
 class InterviewController {
-  private user;
   private interview;
   constructor() {
     this.interview = new InterviewService();
-    this.user = new UserService();
   }
-  getAll(req: Request, res: Response, next: NextFunction) {
+  getAll = (req: Request, res: Response, next: NextFunction) => {
     try {
       const result = this.interview.getAll();
       HttpResponse.send(res, result);
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  get(req: Request, res: Response, next: NextFunction) {
+  get = (req: Request, res: Response, next: NextFunction) => {
     try {
       const result = this.interview.getOne({ id: req.params.id });
       HttpResponse.send(res, result);
     } catch (error) {
       next(error);
     }
-  }
+  };
 
-  scheduleInterview(req: Request, res: Response, next: NextFunction) {
+  scheduleInterview = (req: Request, res: Response, next: NextFunction) => {
     try {
       let result;
       if (Object.values(req.body).length < 1) {
@@ -44,7 +41,7 @@ class InterviewController {
     } catch (error) {
       next(error);
     }
-  }
+  };
 }
 
 export default InterviewController;
