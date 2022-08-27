@@ -9,7 +9,7 @@ export default {
   testEnvironment: 'node',
   verbose: true,
   clearMocks: true,
-  modulePathIgnorePatterns: ['./dist'],
+  modulePathIgnorePatterns: ['./dist', 'test_db.json'],
   moduleDirectories: ['node_modules', 'src'],
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
